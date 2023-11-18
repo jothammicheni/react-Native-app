@@ -1,12 +1,18 @@
 // Login.js
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text,SafeAreaView,Image,KeyboardAvoidingView  } from 'react-native';
 import Logo  from '../assets/amazon-logo.png'
 import { TextInput } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Pressable } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
 const Login = () => {
+    const[password ,setPassword]=useState('')
+    const[email ,setEmail]=useState('')
+
+    const navigation =useNavigation()
   return (
     <SafeAreaView 
     style={{flex:1,backgroundColor:'white' ,alignItems:'center'}}
@@ -124,8 +130,11 @@ const Login = () => {
           style={{
             marginTop:20
           }}
+          onPress={()=>navigation.navigate('Register')}
          >
-            <Text style={{textAlign:'center',fontSize:18,fontWeight:'bold',color:'grey'}}>Don't have an account? Signup</Text>
+            <Text
+             style={{textAlign:'center',fontSize:18,fontWeight:'bold',color:'grey'}}
+             >Don't have an account? Signup</Text>
          </Pressable>
         </KeyboardAvoidingView>
 
